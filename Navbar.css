@@ -31,10 +31,10 @@
   font-size:15px;
 }
 .navbar .rightside a:hover{
-  color:aliceblue;
+  color:green;
 }
 .navbar:hover{
-  color:beige;
+  color:green;
 }
 .navbar .rightside a:active{
   color:gray;
@@ -54,7 +54,7 @@
   cursor: pointer;
 }
 .navbar .menu-icon:hover{
-color:antiquewhite;
+color:green;
 }
 @media (max-width: 768px) {
   .navbar{

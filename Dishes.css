@@ -3,6 +3,7 @@
     padding:0;
     background-color: rgb(238, 235, 235);
 }
+
 .head{
     font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
@@ -26,6 +27,17 @@
     width:240px;
     height: 180px;
 }
+.card-img-top {
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    border-radius: 30px;
+  }
+  
+  .card-img-top:hover {
+    transform: scale(1.2); 
+    z-index: 10; 
+  }
+  
 .card-body .card-title{
     font-size: 17px;
     font-family:Arial, Helvetica, sans-serif;
@@ -34,6 +46,10 @@
     text-transform: capitalize;
 
 }
+.card:hover{
+    color:green;
+}
+
 .card-body .card-text{
     margin-left:40px;
     font-size: 16px;
@@ -52,7 +68,7 @@
 
 }
 .card-body button:hover{
-    background:var(--green);
+    background:green;
 }
 .card-2{
     align-items: right;
@@ -75,6 +91,16 @@
  span{
     margin-left:50px;
  }
+.stars{
+    margin-left:40px;
+    color:green;
+   
+}
+
+
+
+
+
 @media (max-width: 768px) {
     .cards-container {
         flex-direction: column;
