@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import kitfo from '../images/Kitfo.png';
 import shekla from '../images/sheklatibs.png';
 import gomenkitfo from '../images/gomenkitfo.png';
@@ -10,7 +10,31 @@ import hancootee from '../images/hancootee.png';
 import caccabsaa from '../images/caccabsaa.png';
 import '../styles/Dishes.css';
 
+
 function Dishes() {
+  const [favorites, setFavorites] = useState([]);
+
+  const handleAddToFavorites = (dishName) => {
+    if (!favorites.includes(dishName)) {
+      setFavorites([...favorites, dishName]); 
+    }
+  };
+
+  const renderStars = (dishName) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <i
+          key={i}
+          className="fas fa-star"
+          onClick={() => handleAddToFavorites(dishName)} 
+          style={{ cursor: 'pointer', color: favorites.includes(dishName) ? '#FFD700' : '#ccc' }} 
+        ></i>
+      );
+    }
+    return stars;
+  };
+
   return (
     <div className="container">
       <div className="head">
@@ -24,13 +48,7 @@ function Dishes() {
             <h5 className="card-title">Kitfo</h5>
             <h3>Taste Now</h3>
             <p className="card-text">Kitfo is Gurage special food <br /> made of meat and so tasty.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
+            <div className="stars">{renderStars('SheklaTibs')}</div>
             <span>$20.15</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
@@ -42,13 +60,7 @@ function Dishes() {
             <h5 className="card-title">SheklaTibs</h5>
             <h3>Taste Now</h3>
             <p className="card-text">Shekla Tibs is one of Ethiopian<br /> traditional foods with a unique taste.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
+            <div className="stars">{renderStars('SheklaTibs')}</div>
             <span>$20.15</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
@@ -60,14 +72,8 @@ function Dishes() {
             <h5 className="card-title">GomenKitfo</h5>
             <h3>Taste Now</h3>
             <p className="card-text">GomenKitfo is a traditional Gurage dish<br /> loved for its rich flavor.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
-            <span>$20.15</span>
+            <div className="stars">{renderStars('GomenKitfo')}</div>
+            <span>$10.15</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
         </div>
@@ -78,14 +84,8 @@ function Dishes() {
             <h5 className="card-title">Tibs</h5>
             <h3>Taste Now</h3>
             <p className="card-text">Sautéed meat cooked with onions, tomatoes,<br /> and spices, often served sizzling hot.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
-            <span>$20.15</span>
+            <div className="stars">{renderStars('Tibs')}</div>
+            <span>$14.15</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
         </div>
@@ -96,14 +96,8 @@ function Dishes() {
             <h5 className="card-title">Timatim Lebleb</h5>
             <h3>Taste Now</h3>
             <p className="card-text">A simple dish made with sautéed tomatoes.<br /> Occasional and flavorful.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
-            <span>$20.15</span>
+            <div className="stars">{renderStars('TimatimLebleb')}</div>
+            <span>$25</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
         </div>
@@ -114,14 +108,8 @@ function Dishes() {
             <h5 className="card-title">Beyeaynet</h5>
             <h3>Taste Now</h3>
             <p className="card-text">An Ethiopian vegan platter composed of<br /> curries and veggies.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
-            <span>$20.15</span> 
+            <div className="stars">{renderStars('Beyeaynet')}</div>
+            <span>$17</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
         </div>
@@ -132,14 +120,8 @@ function Dishes() {
             <h5 className="card-title">Cumboo</h5>
             <h3>Taste Now</h3>
             <p className="card-text">Traditional Oromo food that you’ll<br /> love to taste.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
-            <span>$20.15</span>
+            <div className="stars">{renderStars('Cumboo')}</div>
+            <span>$18</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
         </div>
@@ -150,14 +132,8 @@ function Dishes() {
             <h5 className="card-title">Hancootee</h5>
             <h3>Taste Now</h3>
             <p className="card-text">A famous traditional Oromo dish<br /> cherished by many.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
-            <span>$20.15</span>
+            <div className="stars">{renderStars('Hancootee')}</div>
+            <span>$30</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
         </div>
@@ -168,14 +144,8 @@ function Dishes() {
             <h5 className="card-title">Caccabsaa</h5>
             <h3>Taste Now</h3>
             <p className="card-text">A favorite dish of the Oromo people.<br /> It’s the dish you deserve.</p>
-            <div className='stars'>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star'></i>
-              <i className='fas fa-star-half-alt'></i>
-            </div>
-            <span>$20.15</span>
+            <div className="stars">{renderStars('Caccabsaa')}</div>
+            <span>$23</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
         </div>
