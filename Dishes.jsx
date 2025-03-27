@@ -10,25 +10,23 @@ import hancootee from '../images/hancootee.png';
 import caccabsaa from '../images/caccabsaa.png';
 import '../styles/Dishes.css';
 
-
 function Dishes() {
-  const [favorites, setFavorites] = useState([]);
+  const [ratings, setRatings] = useState({});
 
-  const handleAddToFavorites = (dishName) => {
-    if (!favorites.includes(dishName)) {
-      setFavorites([...favorites, dishName]); 
-    }
+  const handleRateDish = (dishName, rating) => {
+    setRatings({ ...ratings, [dishName]: rating });
   };
 
   const renderStars = (dishName) => {
     const stars = [];
-    for (let i = 1; i <= 5; i++) {
+    const currentRating = ratings[dishName] || 0; 
+    for (let i = 1; i <= 3; i++) {
       stars.push(
         <i
           key={i}
           className="fas fa-star"
-          onClick={() => handleAddToFavorites(dishName)} 
-          style={{ cursor: 'pointer', color: favorites.includes(dishName) ? '#FFD700' : '#ccc' }} 
+          onClick={() => handleRateDish(dishName, i)} 
+          style={{ cursor: 'pointer', color: i <= currentRating ? '#FFD700' : '#ccc' }} // Highlight selected stars
         ></i>
       );
     }
@@ -48,7 +46,7 @@ function Dishes() {
             <h5 className="card-title">Kitfo</h5>
             <h3>Taste Now</h3>
             <p className="card-text">Kitfo is Gurage special food <br /> made of meat and so tasty.</p>
-            <div className="stars">{renderStars('SheklaTibs')}</div>
+            <div className="stars">{renderStars('Kitfo')}</div>
             <span>$20.15</span>
             <button className="btn btn-primary">Add to cart</button>
           </div>
