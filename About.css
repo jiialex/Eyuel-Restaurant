@@ -1,0 +1,113 @@
+.about {
+    padding: 3rem 1.5rem;
+    background: #d8d8d9;
+}
+
+.about .sub-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 1rem;
+}
+
+.about .heading {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.about .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about .row .image {
+    flex: 1 1 45%;
+    text-align: center;
+}
+
+.about .row .image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about .row .content {
+    flex: 1 1 50%;
+    text-align: left;
+}
+
+.about .row .content h4 {
+    color: var(--black);
+    font-size: 2rem;
+    margin-left:60px;
+    padding-bottom: 1rem;
+    font-weight: bold;
+}
+
+.about .row .content p {
+    color: var(--light-color);
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    line-height: 1.8;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.about .row .content .icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+.about .row .content .icons-container .icons {
+    background: #fff;
+    font-size: 4rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex: 1 1 30%;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about .row .content .icons-container .icons i {
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.about .row .content .icons-container .icons span {
+    font-size: 1.9rem;
+    color: var(--black);
+    text-transform: capitalize;
+}
+
+.about .row .content .icons-container .icons:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+.about .row .content .btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    color: green;
+    background: var(--black);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.about .row .content .btn:hover {
+    background: rgb(69, 165, 69);
+}

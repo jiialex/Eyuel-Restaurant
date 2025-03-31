@@ -16,6 +16,9 @@
     text-transform: capitalize;
     justify-content: center;
 }
+.head h3{
+    margin-right:60px;
+}
 .container h3{
     margin-left:70px;
     font-family: Arial, Helvetica, sans-serif;
