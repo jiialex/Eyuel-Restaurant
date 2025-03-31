@@ -3,7 +3,7 @@ import logo from '../images/logo.png';
 // import { Link } from 'react-router-dom';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import '../styles/Navbar.css';
-import '../js/navbar.js'
+import '../js/review.js'
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

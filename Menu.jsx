@@ -23,8 +23,7 @@ function Menu() {
         <div className="box">
           <div className="image">
             <img src={food1} alt="Delicious food 1" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
+            <a href="#" className="fas fa-heart" ></a>
           <div className="content">
             <div className="stars">
               <i className="fas fa-star"></i>
@@ -36,6 +35,7 @@ function Menu() {
             <a href="#" className="btn">Add to Cart</a>
             <span className="price">$10.99</span>
           </div>
+        </div>
         </div>
 
         <div className="box">
@@ -241,3 +241,4 @@ function Menu() {
 }
 
 export default Menu;
+
