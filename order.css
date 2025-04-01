@@ -1,0 +1,123 @@
+body {
+    font-family: 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9; 
+    color: var(--black);
+  }
+  
+  .order {
+    padding: 1rem 2rem;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    max-width: 75rem;
+    margin: 2rem auto;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .order .sub-heading {
+    font-family: 'Courier New', monospace;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .order .heading {
+    font-family: 'Verdana', sans-serif;
+    font-size: 1.9rem;
+    color: var(--dark-primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .order form {
+    width: 50rem;
+    max-width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    background: #fff;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+  
+  .order form .inputbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+  }
+  
+  .order form .inputbox .input {
+    flex: 1 1 calc(50% - 1.5rem);
+  }
+  
+  .order form .inputbox .input span {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--light-color);
+    font-family: 'Georgia', serif;
+  }
+  
+  .order form .inputbox .input input,
+  .order form .inputbox .input textarea {
+    background: #eee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: var(--black);
+    text-transform: none;
+    margin-bottom: 1rem;
+    width: 80%;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    font-family: 'Tahoma', sans-serif;
+  }
+  
+  .order form .inputbox .input input:focus,
+  .order form .inputbox .input textarea:focus {
+    outline: none;
+    border: 0.1rem solid var(--primary-color);
+  }
+
+  .order form .btn {
+    display: block;
+    width: fit-content;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: black;
+    background: green;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin: 1rem auto;
+  }
+  
+  .order form .btn:hover {
+    background: greenyellow;
+  }
+  
+  @media (max-width: 768px) {
+    .order {
+      padding: 2rem 1rem;
+      width:60%;
+    }
+  
+    .order form .inputbox .input {
+      flex: 1 1 100%; 
+    }
+  
+    .order .heading {
+      font-size: 2.5rem;
+    }
+  
+    .order .sub-heading {
+      font-size: 1.8rem;
+    }
+  }
+  
