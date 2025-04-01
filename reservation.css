@@ -1,0 +1,127 @@
+.reserve {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; 
+    padding: 30px;
+    max-width: 900px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+h4 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    font-weight: normal;
+}
+
+.btn {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049; 
+}
+.image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px; 
+    padding: 10px; 
+    top:30px;
+    margin: auto; 
+}
+
+.image img {
+    width: 30%; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+.form {
+    margin-top: 20px;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; 
+}
+
+form input:focus {
+    border-color: #4CAF50;
+    outline: none; 
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); 
+}
+
+form button[type="submit"] {
+    background-color: green; 
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: greenyellow; 
+}
+
+@media (max-width: 768px) {
+    .reserve {
+        padding: 20px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+
+    form input {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
