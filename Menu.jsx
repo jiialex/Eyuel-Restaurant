@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import food1 from '../images/food1.png';
 import food2 from '../images/food2.png';
 import food3 from '../images/food3.png';
@@ -14,231 +14,76 @@ import food9 from '../images/food9.png';
 import '../styles/menu.css';
 
 function Menu() {
+  const [cart, setCart] = useState([]);
+  const [ratings, setRatings] = useState({});
+
+  const addToCart = (item) => {
+    setCart((prevCart) => [...prevCart, item]);
+    alert(`${item} has been added to your cart.`);
+  };
+
+  const handleRating = (itemId, rating) => {
+    setRatings((prevRatings) => ({
+      ...prevRatings,
+      [itemId]: prevRatings[itemId] === rating ? 0 : rating, 
+    }));
+  };
+
+  const clearRating = (itemId) => {
+    setRatings((prevRatings) => ({
+      ...prevRatings,
+      [itemId]: 0,
+    }));
+  };
+
+  const menuItems = [
+    { id: 1, name: 'Delicious Food 1', image: food1, price: '$10.99', width: '200%', height: '600px' },
+    { id: 2, name: 'Delicious Food 2', image: food2, price: '$15.49', width: '100%', height: '400px' },
+    { id: 3, name: 'Delicious Food 3', image: food3, price: '$7.99', width: '100%', height: '400px' },
+    { id: 4, name: 'Delicious Food 4', image: food4, price: '$6.50', width: '100%', height: '400px' },
+    { id: 5, name: 'Delicious Food 5', image: food5, price: '$11.99', width: '100%', height: '400px' },
+    { id: 6, name: 'Delicious Food 6', image: food6, price: '$24.99', width: '100%', height: '400px' },
+    { id: 7, name: 'Delicious Food 7', image: food7, price: '$21.99', width: '100%', height: '400px' },
+    { id: 8, name: 'Delicious Tej', image: tej, price: '$15.99', width: '100%', height: '400px' },
+    { id: 9, name: 'Korer Tej', image: tejkor, price: '$16.99', width: '100%', height: '400px' },
+    { id: 10, name: 'Abish', image: abish, price: '$15.99', width: '100%', height: '400px' },
+    { id: 11, name: 'Delicious Food 9', image: food9, price: '$15.99', width: '100%', height: '400px' },
+    { id: 12, name: 'Coffee', image: coffee, price: '$12.99', width: '100%', height: '400px' },
+  ];
+  
   return (
     <div className="menu" id="menu">
-      <h3 className="sub-heading">Our Menu</h3>
-      <h1 className="heading">Today's Speciality</h1>
-      <div className="box-container">
-
-        <div className="box">
-          <div className="image">
-            <img src={food1} alt="Delicious food 1" />
-            <a href="#" className="fas fa-heart" ></a>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$10.99</span>
-          </div>
+  <h3 className="sub-heading">Our Menu</h3>
+  <h1 className="heading">Today's Speciality</h1>
+  <div className="box-container">
+    {menuItems.map((item) => (
+      <div className="box" key={item.id}>
+        <div className="image">
+          <img src={item.image} alt={item.name} />
+          <a href="#" className="fas fa-heart"></a>
         </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={food2} alt="Delicious food 2" />
-            <a href="#" className="fas fa-heart"></a>
+        <div className="content">
+          <div className="stars">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <i
+                key={star}
+                className={`fas ${star <= (ratings[item.id] || 0) ? 'fa-star' : 'fa-star-half-alt'}`}
+                onClick={() => handleRating(item.id, star)}
+                style={{
+                  color: star <= (ratings[item.id] || 0) ? 'green' : '#ccc',
+                  cursor: 'pointer',
+                }}
+              ></i>
+            ))}
           </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$15.49</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={food3} alt="Delicious food 3" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$7.99</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={food4} alt="Delicious food 4" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$6.50</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={food5} alt="Delicious food 5" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$11.99</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={food6} alt="Delicious food 6" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$24.99</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={food7} alt="Delicious food 7" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$21.99</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={tej} alt="Delicious Tej" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$15.99</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={tejkor} alt="Korer Tej" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$16.99</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={abish} alt="Abish" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$15.99</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={food9} alt="" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$15.99</span>
-          </div>
-        </div>
-
-        <div className="box">
-          <div className="image">
-            <img src={coffee} alt="" />
-            <a href="#" className="fas fa-heart"></a>
-          </div>
-          <div className="content">
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-            <a href="#" className="btn">Add to Cart</a>
-            <span className="price">$12.99</span>
-          </div>
+          <button onClick={() => addToCart(item.name)} className="btn">
+            Add to Cart
+          </button>
+          <span className="price">{item.price}</span>
         </div>
       </div>
-    </div>
-  );
-}
-
-export default Menu;
-
+    ))}
+  </div>
+</div>
+  )}
+  export default Menu;
